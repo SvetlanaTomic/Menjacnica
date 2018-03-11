@@ -11,13 +11,20 @@ public class Valuta {
 		return naziv;
 	}
 	public void setNaziv(String naziv) {
-		this.naziv = naziv;
+		if(naziv!=null && !naziv.isEmpty())
+			this.naziv = naziv;
+		else
+			System.out.println("Naziv je pogresno unet");
 	}
 	public String getSkraceniNaziv() {
 		return skraceniNaziv;
 	}
 	public void setSkraceniNaziv(String skraceniNaziv) {
-		this.skraceniNaziv = skraceniNaziv;
+		if(naziv!=null && !naziv.isEmpty())
+			this.skraceniNaziv = skraceniNaziv;
+		else
+			System.out.println("Skraceni naziv je pogresno unet");
+		
 	}
 	public LinkedList<KursZaDatum> getKursZaDatum() {
 		return kursZaDatum;

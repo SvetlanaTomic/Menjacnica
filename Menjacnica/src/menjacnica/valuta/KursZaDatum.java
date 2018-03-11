@@ -12,7 +12,10 @@ public class KursZaDatum {
 		return datum;
 	}
 	public void setDatum(GregorianCalendar datum) {
-		this.datum = datum;
+		if(!datum.after(GregorianCalendar.DATE))
+			this.datum = datum;
+		else
+			System.out.println("Ne mozete uneti kruseve za buducnost");
 	}
 	public double getProdajni() {
 		return prodajni;
