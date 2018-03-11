@@ -1,5 +1,6 @@
 package menjacnica.valuta;
 
+import java.util.GregorianCalendar;
 import java.util.LinkedList;
 
 public class Valuta {
@@ -30,7 +31,25 @@ public class Valuta {
 		return kursZaDatum;
 	}
 	public void setKursZaDatum(LinkedList<KursZaDatum> kursZaDatum) {
-		this.kursZaDatum = kursZaDatum;
+			this.kursZaDatum=kursZaDatum;
+	}
+	public void addKursZaDatum(KursZaDatum k)
+	{
+		if(k!=null)
+		this.kursZaDatum.add(k);
+	}
+	public void delateKursZaDatum(GregorianCalendar d)
+	{
+		for(int i=0;i<kursZaDatum.size();i++)
+			if(kursZaDatum.get(i).getDatum().equals(d))
+				kursZaDatum.remove(i);
+	}
+	public KursZaDatum vratiZaDatum(GregorianCalendar d)
+	{
+		for(int i=0;i<kursZaDatum.size();i++)
+			if(kursZaDatum.get(i).getDatum().equals(d))
+				return this.kursZaDatum.get(i);
+		return null;
 	}
 	@Override
 	public String toString() {
