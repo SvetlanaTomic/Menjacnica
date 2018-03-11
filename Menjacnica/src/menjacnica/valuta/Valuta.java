@@ -15,7 +15,7 @@ public class Valuta {
 		if(naziv!=null && !naziv.isEmpty())
 			this.naziv = naziv;
 		else
-			System.out.println("Naziv je pogresno unet");
+			throw new RuntimeException("Naziv je pogresno unet");
 	}
 	public String getSkraceniNaziv() {
 		return skraceniNaziv;
@@ -24,7 +24,7 @@ public class Valuta {
 		if(naziv!=null && !naziv.isEmpty())
 			this.skraceniNaziv = skraceniNaziv;
 		else
-			System.out.println("Skraceni naziv je pogresno unet");
+			throw new RuntimeException("Skraceni naziv je pogresno unet");
 		
 	}
 	public LinkedList<KursZaDatum> getKursZaDatum() {
@@ -76,11 +76,7 @@ public class Valuta {
 		if (!(obj instanceof Valuta))
 			return false;
 		Valuta other = (Valuta) obj;
-		if (kursZaDatum == null) {
-			if (other.kursZaDatum != null)
-				return false;
-		} else if (!kursZaDatum.equals(other.kursZaDatum))
-			return false;
+		
 		if (naziv == null) {
 			if (other.naziv != null)
 				return false;

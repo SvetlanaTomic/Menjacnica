@@ -12,28 +12,39 @@ public class KursZaDatum {
 		return datum;
 	}
 	public void setDatum(GregorianCalendar datum) {
+		if(datum==null)
+			throw new RuntimeException("Pogresan datum");
 		if(!datum.after(GregorianCalendar.DATE))
 			this.datum = datum;
 		else
-			System.out.println("Ne mozete uneti kruseve za buducnost");
+			throw new RuntimeException("Ne mozete uneti kruseve za buducnost");
 	}
 	public double getProdajni() {
 		return prodajni;
 	}
 	public void setProdajni(double prodajni) {
-		this.prodajni = prodajni;
+		if(prodajni>0)
+			this.prodajni = prodajni;
+		else
+			throw new RuntimeException();
 	}
 	public double getKupovni() {
 		return kupovni;
 	}
 	public void setKupovni(double kupovni) {
-		this.kupovni = kupovni;
+		if(kupovni>0)
+			this.kupovni = kupovni;
+		else
+			throw new RuntimeException();
 	}
 	public double getSrednji() {
 		return srednji;
 	}
 	public void setSrednji(double srednji) {
-		this.srednji = srednji;
+		if(srednji>0)
+			this.srednji = srednji;
+		else
+			throw new RuntimeException();
 	}
 	@Override
 	public String toString() {
